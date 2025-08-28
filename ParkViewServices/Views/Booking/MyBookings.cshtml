@@ -1,0 +1,58 @@
+﻿@model Booking
+
+<p>Payment Recieved Successfully</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>User Email</th>
+        <td>@Model.UserEmail</td>
+    </tr>
+    <tr>
+        <th>Check-In Date</th>
+        <td>@Model.CheckInDate.ToShortDateString()</td>
+    </tr>
+    <tr>
+        <th>Check-Out Date</th>
+        <td>@Model.CheckOutDate.ToShortDateString()</td>
+    </tr>
+    <tr>
+        <th>Number of Rooms</th>
+        <td>@Model.NumberOfRooms</td>
+    </tr>
+    <tr>
+        <th>Number of Adults</th>
+        <td>@Model.NumberOfAdults</td>
+    </tr>
+    <tr>
+        <th>Number of Children</th>
+        <td>@Model.NumberOfChildren7To12</td>
+    </tr>
+    <tr>
+        <th>Total Amount</th>
+        <td>@Model.TotalAmount.ToString("C")</td>
+    </tr>
+    <tr>
+        <th>Payment Status</th>
+        <td>@Model.PaymentStatus</td>
+    </tr>
+    <tr>
+        <th>Transaction ID</th>
+        <td>@Model.TransactionId</td>
+    </tr>
+    <tr>
+        <th>Is Confirmed</th>
+        <td>@Model.IsConfirmed</td>
+    </tr>
+    <tr>
+        <th>Is Cancelled</th>
+        <td>@Model.IsCancelled</td>
+    </tr>
+    <tr>
+        <th>Cancellation Date</th>
+        <td>@Model.CancellationDate</td>
+    </tr>
+    <tr>
+        <th>Booked List ID</th>
+        <td>@Model.BookedListId</td>
+    </tr>
+</table>

@@ -1,0 +1,124 @@
+﻿@model SelectViewModel
+
+<div class="container">
+    <div class="row m-3">
+        <a class="btn btn-sm btn-dark rounded py-2 px-4" asp-controller="Booking" asp-action="Book" asp-route-cityId="@Model.CityId">Reset Filters</a>
+    </div>
+    <div class="row m-2">
+        <div class="col-md-8">
+            <div class="row">
+            @foreach (var item in Model.roomCounts)
+            {
+            <div class="col-md-6">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="~/images/@(item.RoomType.Price +".jpg")"  alt="">
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">@item.RoomType.RoomTypeName</h5>
+                                <div class="ps-2">
+                                    @if (item.RoomTypeID == 1)
+                                    {
+                                        <small class="fa fa-star text-primary1"></small>
+                                        <small class="fa fa-star text-primary1"></small>
+                                        <small class="fa fa-star text-primary1"></small>
+                                        <small class="fa fa-star text-primary1"></small>
+                                        <small class="fa fa-star text-primary1"></small>
+                                    }
+                                        else if (item.RoomTypeID == 2 || item.RoomTypeID == 3)
+                                    {
+                                        <small class="fa fa-star text-primary1"></small>
+                                        <small class="fa fa-star text-primary1"></small>
+                                        <small class="fa fa-star text-primary1"></small>
+                                        <small class="fa fa-star text-primary1"></small>
+                                    }
+                                    else
+                                    {
+                                        <small class="fa fa-star text-primary1"></small>
+                                        <small class="fa fa-star text-primary1"></small>
+                                        <small class="fa fa-star text-primary1"></small>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed  text-primary1 me-2"></i>@item.RoomTypeID Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath  text-primary1 me-2"></i>2 Bath</small>
+                                <small><i class="fa fa-wifi text-primary1 me-2"></i>Wifi</small>
+                            </div>
+                            <p class="text-body mb-3">@item.RoomType.Description</p>
+                                <div class="d-flex mb-3">
+                                    <div class="border-end me-3 pe-3">Available Rooms : <strong>@(item.Count - item.Occupied)</strong> </div>
+                                    <div class="border-end me-3 pe-3">Price/night : <strong>Rs. @item.RoomType.Price</strong></div>
+                                    
+                                </div>
+                            <div class="d-flex justify-content-between">
+
+                                @if (item.Count - item.Occupied == 0)
+                                {
+                                    <div class="text-danger">Room Unavailable</div>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" asp-controller="BookingCart" asp-action="AddToCart" asp-route-RoomTypeId=@item.RoomType.Id asp-route-HotelId=@Model.HotelId class="btn btn-primary @if(Model.booking.NumberOfRooms == Model.bookedRooms.Count()) {
+                <text>disabled</text>
+ }">Select Room</a>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+        }
+            </div>
+
+        </div>
+                <div class="col-md-4">
+                    <div class="row m-3">
+                        Selected Rooms
+                    </div>
+            @if (Model.bookedRooms.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Room Type</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.bookedRooms)
+                        {
+                            <tr>
+                                <td>1x @item.RoomType.RoomTypeName</td>
+                                <td>@item.RoomType.Price</td>
+                                <td>
+                                    <a asp-controller="BookingCart"
+                                       asp-action="RemoveFromCart"
+                                       asp-route-RoomId="@item.Id"
+                                       asp-route-HotelId="@item.HotelId"
+                                       class="btn btn-danger">
+                                        Remove
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+                       else
+                       {
+                            <p>You have not selected room</p>
+                        
+                       }    
+                        <a asp-controller="Booking" asp-action="Confirmation" 
+                        class="btn btn-success center @if(Model.booking.NumberOfRooms != Model.bookedRooms.Count()) {
+                        <text>disabled</text>
+            }">Review & Pay</a>
+                    </div>
+                </div>
+    </div>
+    
+</div>

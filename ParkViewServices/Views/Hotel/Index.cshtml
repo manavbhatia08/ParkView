@@ -1,0 +1,399 @@
+﻿@model Hotel
+<style>
+    
+    /*videoContainer*/
+
+    
+    .masthead-wrapper {
+        position: relative;
+        overflow: hidden;
+        min-height: 38.8125rem;
+    }
+
+    .masthead-video {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .video-wrapper {
+        padding: 0;
+        line-height: 0;
+        height: 38.8125rem;
+    }
+
+    .masthead-video video {
+        width: 100vw;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .masthead-content.container {
+    padding-bottom: 65px;
+    padding-left:80px;
+}
+.masthead-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    animation: masthead-opacity-fadeIn-animation 2s;
+    justify-content: flex-end;
+}
+@@media only screen and (min-width: 576px)
+.container {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.container {
+    
+    margin-right: auto;
+    margin-left: auto;
+    
+    max-width: 100%;
+}
+
+    .masthead-eyebrow {
+        
+        font-size: 1.3rem;
+        color: #fff;
+        margin-bottom: 8px;
+        font-family: AkkuratLLWebPan-Regular,Arial,sans-serif;
+    }
+
+    .masthead-title {
+        font-family: "Didot LT W02 Roman",Garamond,Times New Roman,serif; color: #fff;
+        font-size: 5.5rem;
+        line-height: 1.2;
+        letter-spacing: -2px;
+        font-weight: 400;
+    }
+
+    /*detailsContainer*/
+
+    .detailsDiv {
+        display: flex;
+        
+        width: 100%;
+        margin-top:70px;
+        padding-left:50px;
+        padding-right:50px;
+        margin-right: auto;
+        margin-left: auto;
+        
+        max-width: 100%;
+        line-height: 1.2;
+        height: 100%;
+        color: #242021;
+    }
+
+    .detailsDiv-right {
+        padding: 30px 32px;
+        margin-right:40px;
+        
+        width: 150%;
+        
+        background-color: #f5f5f5;
+        
+        margin-top: -3px;
+    }
+
+     
+
+    
+
+    .DetailsDiv-right-content h3{
+            font-size: 3rem;
+            font-weight: 400;
+            font-family: "Didot LT W02 Roman",Garamond,Times New Roman,serif;
+            
+    }
+
+    .detailsFont {
+        font-size: 1rem;
+        line-height: 1.5;
+        letter-spacing: -.36px;
+        font-family: AkkuratLLWebPan-Regular,Arial,sans-serif;
+    }
+
+
+    .sec {
+        width: 80%;
+        margin: 0 auto;
+        line-height: 0;
+        position: relative;
+        overflow:hidden;
+        height:100%;
+        background-color: rgba(0,0,0,0);
+    }
+
+     .sec img {
+            width: 100%;
+        }
+
+        .sec article {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 20px;
+            mix-blend-mode: lighten;
+        }
+
+        .sec .division {
+            background: black;
+            
+        }
+
+            .sec .division:nth-of-type(2) {
+                grid-column: 0.5;
+            }
+
+            .text-primary1{
+        color: #FEA116;
+        !important;
+            }
+
+
+
+</style>
+<div class="masthead-wrapper">
+    <div class="masthead-video">
+        <div class="video-wrapper">
+            <video autoplay="autoplay"
+                   muted="muted"
+                   loop="loop"
+                   playsinline="true"
+                   webkit-playsinline="true">
+                <source src="~/Videos/Thailand.mp4"
+                        type="video/mp4" />
+                This video format is not supported by your browser
+            </video>
+        </div>
+
+
+        <div class="masthead-content container">
+            <div class="masthead-eyebrow">@Model.Name</div>
+            <h1 class="masthead-title">@Model.City.Name</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="detailsDiv">
+    <div class="DetailsDivs-left">
+        <section class="sec">
+            <img src="~/images/room42.jpg" alt="" >
+            <article>
+                <div class="divison"></div>
+                <div class="divison"></div>
+                <div class="divison"></div>
+                <div class="divison"></div>
+                <div class="divison"></div>
+                <div class="divison"></div>
+                
+            </article>
+        </section>
+    </div>
+    <div class="detailsDiv-right">
+        <div class="DetailsDiv-right-content">
+            <div class="detailsFont"><em>Your journey begins here</em></div>
+            <p>&nbsp;</p>
+            <h3>@Model.City.Name</h3>
+            <div class="detailsFont">&nbsp;</div>
+            <div class="detailsFont">
+                Parkview Hotel is more than just a place to stay; it's an exquisite sanctuary that redefines the art of hospitality. As you step into our world, you'll discover a harmonious blend of opulence, comfort, and natural beauty that sets us apart from the rest.At Parkview Hotel, we understand that every traveler is on a unique journey. Whether you're here for business, leisure, or a special occasion, our hotel is your gateway to uncompromising elegance and unparalleled relaxation. With a commitment to excellence woven into every detail, we ensure your stay with us is nothing short of extraordinary.
+            </div>
+            <p class="detailsFont">&nbsp;</p>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" style="padding-top:30px;" >
+            <h6 class="section-title text-center text-primary1 text-uppercase">Our Rooms</h6>
+            <h1 class="mb-5">Explore Our <span class="text-primary1 text-uppercase">Rooms</span></h1>
+        </div>
+        <div class="row g-4">
+
+            <div class="col-lg-6 col-md-6 wow fadeInUp" >
+                <div class="room-item shadow rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="~/images/28000.jpg" alt="">
+
+                    </div>
+                    <div class="p-4 mt-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="mb-0">Presidential Suite</h5>
+                            <div class="ps-2">
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <small class="border-end me-3 pe-3"><i class="fa fa-bed  text-primary1 me-2"></i>1 Bed</small>
+                            <small class="border-end me-3 pe-3"><i class="fa fa-bath  text-primary1 me-2"></i>2 Bath</small>
+                            <small><i class="fa fa-wifi text-primary1 me-2"></i>Wifi</small>
+                        </div>
+                        <p class="text-body mb-3">Luxurious and spacious presidential suite</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 wow fadeInUp" >
+                <div class="room-item shadow rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="~/images/20000.jpg" alt="">
+
+                    </div>
+                    <div class="p-4 mt-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="mb-0">Executive Suite</h5>
+                            <div class="ps-2">
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <small class="border-end me-3 pe-3"><i class="fa fa-bed  text-primary1 me-2"></i>2 Bed</small>
+                            <small class="border-end me-3 pe-3"><i class="fa fa-bath  text-primary1 me-2"></i>2 Bath</small>
+                            <small><i class="fa fa-wifi text-primary1 me-2"></i>Wifi</small>
+                        </div>
+                        <p class="text-body mb-3">Elegant executive room with modern amenities</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 wow fadeInUp" >
+                <div class="room-item shadow rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="~/images/16000.jpg" alt="">
+
+                    </div>
+                    <div class="p-4 mt-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="mb-0">Deluxe</h5>
+                            <div class="ps-2">
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <small class="border-end me-3 pe-3"><i class="fa fa-bed  text-primary1 me-2"></i>3 Bed</small>
+                            <small class="border-end me-3 pe-3"><i class="fa fa-bath  text-primary1 me-2"></i>2 Bath</small>
+                            <small><i class="fa fa-wifi text-primary1 me-2"></i>Wifi</small>
+                        </div>
+                        <p class="text-body mb-3">Comfortable and stylish deluxe room</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 wow fadeInUp" >
+                <div class="room-item shadow rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="~/images/8000.jpg" alt="">
+
+                    </div>
+                    <div class="p-4 mt-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="mb-0">Super Deluxe</h5>
+                            <div class="ps-2">
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                <small class="fa fa-star text-primary1"></small>
+                                
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <small class="border-end me-3 pe-3"><i class="fa fa-bed  text-primary1 me-2"></i>4 Bed</small>
+                            <small class="border-end me-3 pe-3"><i class="fa fa-bath  text-primary1 me-2"></i>2 Bath</small>
+                            <small><i class="fa fa-wifi text-primary1 me-2"></i>Wifi</small>
+                        </div>
+                        <p class="text-body mb-3">Superior deluxe room for a premium stay</p>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+<div class="text-center wow fadeInUp" style="padding-top:30px;" >
+    <h6 class="section-title text-center text-primary1 text-uppercase">Our Services</h6>
+    <h1 class="mb-5">Explore Our <span class="text-primary1 text-uppercase">Services</span></h1>
+</div>
+
+<section >
+    <!--START:Packages-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4  col-sm-12">
+                <div class="ih-item square effect13">
+                    <a href="bali.html">
+                        <div class="img">
+                            <img class="img-fluid" src="~/images/services/spa.jpg" alt="...">
+                        </div>
+                        <div class="info">
+                            <h3>SPA</h3>
+                            <p>Discover deeply personalised treatments, unique retreats, and curated fitness and wellness programmes at our extraordinarily luxurious, award-winning spas.Traditionally, hotel spas offer massage services, saunas, hot tubs, manicures, pedicures, haircuts and styling, hair coloring, facials, waxing, body scrubs, body wraps, and men's facial shaving. Hotel spas usually have a menu of services and prices for each of their services.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4  col-sm-12 ">
+                <div class="ih-item square effect13">
+                    <a href="goa.html">
+                        <div class="img">
+                            <img class="img-fluid" src="~/images/services/restaurant.jpg" alt="...">
+                        </div>
+                        <div class="info">
+                            <h3>DINE-IN</h3>
+                            <p>
+                                Culinary excellence has long been part of the Mandarin Oriental experience. From fine dining to relaxed bistros, our innovative dining destinations will treat you to some of the most extraordinary flavors in the world.Room service or in-room dining is a hotel service enabling guests to choose items of food and drink for delivery to their hotel room for consumption. Room service is organized as a subdivision within the food and beverage department of high-end hotel and resort properties.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4  col-sm-12 ">
+                <div class="ih-item square effect13">
+                    <a href="maldives.html">
+                        <div class="img">
+                            <img class="img-fluid" src="~/images/services/meet.jpg" alt="...">
+                        </div>
+                        <div class="info">
+                            <h3>MEET</h3>
+                            <p>At ParkView, we make every occasion special. With almost 60 years of experience creating bespoke meetings, we can guarantee excellence and success.From elegant ballrooms to stately meeting rooms, our inspiring venues provide the perfect backdrop for your occasion. To discover a wide variety of spaces, along with their floor plans, capacities and factsheets for every venue please see below link. ​</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--END:Packages-->

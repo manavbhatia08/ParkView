@@ -1,0 +1,93 @@
+﻿@model BookingViewModel
+<div id="booking" class="section">
+	<div class="section-center">
+		<div class="container">
+			<div class="row">
+				<div class="booking-form">
+					<div class="form-header">
+						<h1>Make Your Booking</h1>
+					</div>
+					<form asp-action="Book" method="post">
+						<div class="row">
+							<div class="form-group">
+								<span class="form-label">Select Hotel</span>
+								<select asp-for="HotelId" asp-items="@Model.Hotels" class="form-control">
+									<option value="">Select a Hotel</option>
+								</select>
+								<span asp-validation-for="HotelId" class="text-danger"></span>
+								<span class="select-arrow"></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<span class="form-label">Check In</span>
+									<input asp-for="CheckInDate" class="form-control" type="date" />
+									<span asp-validation-for="CheckInDate" class="text-danger"></span>
+								</div>
+								<span class="in-out hidden-xs hidden-sm">&#8652;</span>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<span class="form-label">Check out</span>
+									<input asp-for="CheckOutDate" class="form-control" type="date" />
+									<span asp-validation-for="CheckOutDate" class="text-danger"></span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<span class="form-label">No of rooms</span>
+									<select asp-for="NumberOfRooms" class="form-control">
+										<option value=1>1</option>
+										<option value=2>2</option>
+										<option value=3>3</option>
+									</select>
+									<span asp-validation-for="NumberOfRooms" class="text-danger"></span>
+
+									<span class="select-arrow"></span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<span class="form-label">Adults</span>
+									<select asp-for="NumberOfGuests" class="form-control">
+										<option value=1>1</option>
+										<option value=2>2</option>
+										<option value=3>3</option>
+										<option value=4>4</option>
+										<option value=5>5</option>
+									</select>
+									<span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+
+									<span class="select-arrow"></span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<span class="form-label">Children</span>
+									<select asp-for="NumberOfChildren7to12" class="form-control">
+										<option value=1>1</option>
+										<option value=2>2</option>
+										<option value=3>3</option>
+										<option value=4>4</option>
+									</select>
+									<span asp-validation-for="NumberOfChildren7to12" class="text-danger"></span>
+
+									<span class="select-arrow"></span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-btn">
+									<button class="submit-btn">Check availability</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

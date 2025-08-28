@@ -1,0 +1,380 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model CityHotelsViewModel
+<style>
+
+    * {
+        box-sizing: border-box;
+        opacity:1;
+    }
+
+    .col{
+        display: flex;
+        flex-direction : column;
+        padding : 20px 0px;
+    }
+
+    .text1 , .text2{
+        padding : 10px auto;
+        align-content: center;
+    }
+
+    .tab-group-tabs {
+        display: flex;
+        position: relative;
+        justify-content: flex-start;
+        padding-bottom: 4px;
+        list-style: none;
+    }
+
+    .container {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+        max-width: 100%;
+    }
+
+    ul {
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+
+    .tab-group-tab {
+        display: flex;
+        white-space: nowrap;
+        cursor: pointer;
+        position: relative;
+        margin: 0 15px;
+        
+        padding: 10px 0;
+        color: #676060;
+    }
+
+     .tab-group-button {
+            display: flex;
+            padding: 10px 0;
+            color: #676060;
+        }
+
+    a {
+        color: inherit;
+        position: relative;
+        text-decoration: none;
+    }
+
+
+    
+    a:-webkit-any-link {
+        
+        cursor: pointer;
+        
+    }
+
+
+
+
+</style>
+
+
+<partial name="_explorepageslider"  />
+
+@*<div class="detailsgrid">
+    
+    <div class="row">
+        <div class="col">
+            <div class="text1">
+                Inspired
+            </div>
+            <div class="text2">
+                HOTELS & RESORTS
+            </div>
+
+        </div>
+        <div class="col">
+            From bustling cities to remote beaches — and just about everything in between — discover how The Ritz-Carlton inspires life’s most meaningful journeys in destinations around the world.
+        </div>
+    </div>*@
+
+    <style>
+        /*map css*/
+        .mapcontainer {
+            align-self: center;
+        }
+
+
+        .ourCollection {
+            font-size: 40px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .mx-auto {
+            border-radius: 40%;
+        }
+
+        /*.one {
+                width: 100px;
+                height: 100px;
+                background-image: url("~/wwwroot/images/hotel-room-1447201.jpg");
+                border: 10px solid #111111;
+            }
+
+            .one:hover {
+                    background-image: url("~/wwwroot/images/hotel-room-1447201.jpg");
+            }*/
+
+
+
+    </style>
+
+
+
+
+
+
+
+
+<style>
+    .cards-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    /*.carousel-inner {
+      padding: 1em;
+    }*/
+    /*.carousel-control-prev,
+    .carousel-control-next {
+      background-color: #e1e1e1;
+      width: 5vh;
+      height: 5vh;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }*/
+    /*@@media (min-width: 768px) {
+      .card img {
+        height: 11em;
+      }
+    }*/
+
+    .text-primary1 {
+        color: #FEA116;
+        !important;
+    }
+
+</style>
+
+<div class="text-center wow fadeInUp" style="padding-top:50px;" data-wow-delay="0.1s">
+    <h6 class="section-title text-center text-primary1 text-uppercase" >Our Rooms</h6>
+    <h1 class="mb-5">Explore Our <span class="text-primary1 text-uppercase">Hotels</span></h1>
+</div>
+
+<div id="carouselExampleControls" class="carousel slide"  style="padding-bottom:50px;" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+                
+                <div class="cards-wrapper">
+                @for (int i = 0; i < 3; i++)
+                {
+                    <style>
+    .card-img-overlay{
+        position: absolute;
+        /*bottom: 60px;
+        top:100px;
+        margin-top: 400px;*/
+        padding-left : 50px;
+        padding-top: 500px;
+    }
+    .card{
+        border:0px;
+        margin : 20px;
+        padding: 15px;
+    }
+    .card-title{
+        padding-bottom:10px;
+        color: #fff;
+    }
+
+    .seemore{
+        cursor: pointer;
+        display: inline-flex;
+        position: relative;
+        white-space: nowrap;
+        
+        font-family: var(--AkkuratBold),Arial,sans-serif;
+        flex-direction: column;
+        justify-content: center;
+        
+        font-size: 1rem;
+        
+        transition: .4s ease;
+        overflow: hidden;
+        z-index: 1;
+        border-radius:22px;
+        color: #242021;
+        background-color: #fff;
+        left: 0;
+        padding: 0 24px;
+        height: 44px;
+    }
+    a{
+        text-decoration:none;
+    }
+</style>
+
+<div class="card">
+                        <img class="card-img" src="@Url.Content(@Model.ViewHotelImages.ElementAt(i).ImagePath)" width="500" alt="Card image">
+    <div class="card-img-overlay">
+        <h5 class="card-title">@Model.ViewHotels.ElementAt(i).Name</h5>
+<h6 class="cart-text">@Model.ViewHotels.ElementAt(i).City.Name</h6>
+        
+<a asp-controller="Hotel" asp-action="Index" asp-route-id="@Model.ViewHotels.ElementAt(i).Id" class="seemore">See more</a>
+       
+    </div>
+</div>
+                }
+                </div>
+            
+        </div>
+        <div class="carousel-item">
+            <div class="cards-wrapper">
+                @for (int i = 3; i < 6; i++)
+                {
+                    <style>
+                        .card-img-overlay {
+                            position: absolute;
+                            /*bottom: 60px;
+                                                        top:100px;
+                                                        margin-top: 400px;*/
+                            padding-left: 50px;
+                            padding-top: 500px;
+                        }
+
+                        .card {
+                            border: 0px;
+                            margin: 20px;
+                            padding: 15px;
+                        }
+
+                        .card-title {
+                            padding-bottom: 10px;
+                            color: #fff;
+                        }
+
+                        .seemore {
+                            cursor: pointer;
+                            display: inline-flex;
+                            position: relative;
+                            white-space: nowrap;
+                            font-family: var(--AkkuratBold),Arial,sans-serif;
+                            flex-direction: column;
+                            justify-content: center;
+                            font-size: 1rem;
+                            transition: .4s ease;
+                            overflow: hidden;
+                            z-index: 1;
+                            border-radius: 22px;
+                            color: #242021;
+                            background-color: #fff;
+                            left: 0;
+                            padding: 0 24px;
+                            height: 44px;
+                        }
+
+                        a {
+                            text-decoration: none;
+                        }
+                    </style>
+
+                    <div class="card">
+                        <img class="card-img" src="@Url.Content(@Model.ViewHotelImages.ElementAt(i).ImagePath)" width="500" alt="Card image">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">@Model.ViewHotels.ElementAt(i).Name</h5>
+                            <h6 class="cart-text">@Model.ViewHotels.ElementAt(i).City.Name</h6>
+
+                            <a asp-controller="Hotel" asp-action="Index" asp-route-id="@Model.ViewHotels.ElementAt(i).Id" class="seemore">See more</a>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="cards-wrapper">
+                @for (int i = 6; i < 9; i++)
+                {
+                    <style>
+                        .card-img-overlay {
+                            position: absolute;
+                            /*bottom: 60px;
+                                                                                top:100px;
+                                                                                margin-top: 400px;*/
+                            padding-left: 50px;
+                            padding-top: 500px;
+                        }
+
+                        .card {
+                            border: 0px;
+                            margin: 20px;
+                            padding: 15px;
+                        }
+
+                        .card-title {
+                            padding-bottom: 10px;
+                            color: #fff;
+                        }
+
+                        .seemore {
+                            cursor: pointer;
+                            display: inline-flex;
+                            position: relative;
+                            white-space: nowrap;
+                            font-family: var(--AkkuratBold),Arial,sans-serif;
+                            flex-direction: column;
+                            justify-content: center;
+                            font-size: 1rem;
+                            transition: .4s ease;
+                            overflow: hidden;
+                            z-index: 1;
+                            border-radius: 22px;
+                            color: #242021;
+                            background-color: #fff;
+                            left: 0;
+                            padding: 0 24px;
+                            height: 44px;
+                        }
+
+                        a {
+                            text-decoration: none;
+                        }
+                    </style>
+
+                    <div class="card">
+                        <img class="card-img" src="@Url.Content(@Model.ViewHotelImages.ElementAt(i).ImagePath)" width="500" alt="Card image">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">@Model.ViewHotels.ElementAt(i).Name</h5>
+                            <h6 class="cart-text">@Model.ViewHotels.ElementAt(i).City.Name</h6>
+
+                            <a asp-controller="Hotel" asp-action="Index" asp-route-id="@Model.ViewHotels.ElementAt(i).Id" class="seemore">See more</a>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
